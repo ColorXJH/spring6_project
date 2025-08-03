@@ -5,6 +5,7 @@ import com.deepoove.poi.data.ChartMultiSeriesRenderData;
 import com.deepoove.poi.data.ChartSingleSeriesRenderData;
 import com.deepoove.poi.data.Charts;
 import com.deepoove.poi.data.SeriesRenderData;
+import com.deepoove.poi.plugin.table.LoopRowTableRenderPolicy;
 import com.deepoove.poi.policy.reference.MultiSeriesChartTemplateRenderPolicy;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.core.io.ClassPathResource;
@@ -49,12 +50,26 @@ public class ReportController {
                     .series("countries", new Integer[] { 9826675, 9596961,2826675,3826675,4826675 })
                     .create();
 
-
+            //表格循环
+            List<Map<String, Object>> list_test = new ArrayList<>();
+            Map<String, Object> map = new HashMap<>();
+            map.put("name1", "color1");
+            map.put("name2", "color2");
+            map.put("name3", "color3");
+            map.put("name4", "color4");
+            Map<String, Object> map2 = new HashMap<>();
+            map2.put("name1", "color11");
+            map2.put("name2", "color22");
+            map2.put("name3", "color33");
+            map2.put("name4", "color44");
+            list_test.add(map);
+            list_test.add(map2);
 
             // 2. 绑定数据 Map
             Map<String, Object> data = new HashMap<>();
             data.put("test_chart", comb);
             data.put("test2", test2);
+            data.put("list_test",list_test);
             data.put("single", single);
             String mymessage="12121221\n夏锦辉colorsdasdada\n下你到那儿打了让我进去了就阿瑟驱蚊器恶趣味去恶趣味去问" +
                     "啊饿啊饿啊饿啊请ddasdadsadasdadsasdasdasd问请问请问\n";
@@ -62,6 +77,7 @@ public class ReportController {
             // 3. 注册组合图表策略
             Configure config = Configure.builder()
                     .bind("chartData", new MultiSeriesChartTemplateRenderPolicy())
+                    .bind("list_test",new LoopRowTableRenderPolicy())
                     .build();
 
             // 4. 加载模板（假设模板路径是 resources/templates/word_report_template.docx）
