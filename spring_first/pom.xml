@@ -20,7 +20,13 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>6.0.2</version>
+            <version>5.3.28</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>poi-tl</artifactId>
+            <version>1.12.0</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
