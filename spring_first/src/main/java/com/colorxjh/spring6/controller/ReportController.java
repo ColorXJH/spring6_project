@@ -30,9 +30,6 @@ public class ReportController {
                     .addLineSeries("x4", new Double[] { 323.0, 89.0,323.0, 89.0 })
                     .create();
 
-
-
-
             //多系列 同类型
             ChartMultiSeriesRenderData test2 = new ChartMultiSeriesRenderData();
             test2.setChartTitle("季度销售与增长123");
@@ -95,7 +92,6 @@ public class ReportController {
             out.flush();
             out.close();
             template.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
